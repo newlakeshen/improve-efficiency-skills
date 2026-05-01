@@ -16,8 +16,9 @@ description: Use when the user asks to run Claude Code CLI as an external code r
    ```bash
    claude -p --permission-mode dontAsk --output-format text "Review the current git changes. Focus on correctness bugs, regressions, security issues, data loss risks, and missing tests. Do not modify files. Return only actionable findings with file/line references when possible."
    ```
-5. Capture stdout/stderr and summarize the outcome for the user in Chinese unless the user requested another language.
-6. Before relaying findings, verify them against the local code or diff. Drop findings that are speculative, duplicate, or contradicted by the code.
+5. Wait for the `claude` command to finish before deciding whether the review is complete. Do not interrupt, summarize, or rerun with a different prompt just because the command is taking longer than expected; only stop early if the user explicitly cancels or the command exits.
+6. Capture stdout/stderr and summarize the outcome for the user in Chinese unless the user requested another language.
+7. Before relaying findings, verify them against the local code or diff. Drop findings that are speculative, duplicate, or contradicted by the code.
 
 ## Prompt Patterns
 
