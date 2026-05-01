@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | `kimi-review` | `kimi` | 调用 Kimi CLI 做代码分析、重构、自动化编辑或代码评审。 | 需要 Codex 让 Kimi 作为第二个评审者，或让 Kimi 在当前仓库中执行一个实现任务。 |
 | `claude-code-review` | `claude-code-review` | 调用 Claude Code CLI 作为外部代码评审工具。 | 需要 Claude Code 评审本地改动，然后由 Codex 复核问题是否真实有效。 |
-| `op-gpt5.5-prompt` | `op-gpt5.5-prompt` | 根据 GPT-5.5 提示词最佳实践改写提示词草稿。 | 粘贴一段粗糙提示词，让 Codex 优化成更清晰、可执行的任务契约。 |
+| `op-codex-prompt` | `op-codex-prompt` | 根据 OpenAI prompt guidance 和 Codex prompting guide 改写提示词草稿。 | 粘贴一段粗糙的 Codex 或 coding-agent 提示词，让 Codex 优化成更清晰、可执行、可验证的任务契约。 |
 
 ## 安装方式
 
@@ -18,7 +18,7 @@
 mkdir -p ~/.codex/skills
 cp -R kimi-review ~/.codex/skills/
 cp -R claude-code-review ~/.codex/skills/
-cp -R op-gpt5.5-prompt ~/.codex/skills/
+cp -R op-codex-prompt ~/.codex/skills/
 ```
 
 安装方式二：使用 Codex 自带的技能安装器从 GitHub 安装单个技能。
@@ -28,7 +28,7 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
   --url https://github.com/newlakeshen/improve-efficiency-skills/tree/main/kimi-review
 ```
 
-如果要安装其他技能，把 URL 里的 `kimi-review` 替换成 `claude-code-review` 或 `op-gpt5.5-prompt`。
+如果要安装其他技能，把 URL 里的 `kimi-review` 替换成 `claude-code-review` 或 `op-codex-prompt`。
 
 安装或更新后，重启 Codex，让新的技能元数据生效。
 
@@ -36,4 +36,4 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 
 - `kimi-review` 需要本机已安装并登录 `kimi` CLI，且 `kimi` 在 `PATH` 中可用。
 - `claude-code-review` 需要本机已安装并登录 `claude` CLI，且 `claude` 在 `PATH` 中可用。
-- `op-gpt5.5-prompt` 没有额外本地 CLI 依赖。
+- `op-codex-prompt` 没有额外本地 CLI 依赖。
